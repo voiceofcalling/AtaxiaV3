@@ -1,0 +1,68 @@
+/*reset*/
+*
+{
+	margin: 0; 
+	padding:0;
+}
+
+li
+{
+	list-style: none;
+}
+
+a
+{
+	text-decoration: none;
+}
+
+/*common*/
+.wrapper
+{
+	width: 1170px;
+	margin: 0 auto;
+}
+.clearfix
+{
+	content: ' ';
+	display: block;
+	clear: both;
+}
+
+/*header*/
+header
+{ 	
+	height: 75px;
+	background-color: #006F84;
+	border: 1px solid #253342;
+	position: fixed;
+	width: 100%;
+	z-index: 9999;
+	top: 0;
+	left: 0;
+}
+
+h1
+{
+	color: white;
+	line-height: 75px;
+	float:left;
+}
+
+.menu
+{ 
+	float:right;
+}
+.menu li
+{ 
+	float: left;
+}
+
+.menu a
+{	
+	line-height: 75px;
+	color: white;
+	padding: 0 15px;
+	display: block;
+}
+
+

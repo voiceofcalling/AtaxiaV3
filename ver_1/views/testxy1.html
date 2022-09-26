@@ -1,0 +1,22 @@
+<html>
+    <head>
+        <title>Ataxia | XY Test</title>
+    </head>
+
+    <script src = "../scripts/testxy.js" type = "text/javascript"></script>
+    <style>
+        .reset{
+            background-color:#FF0000;
+            border: none;
+            padding: 15px 25px;
+        }
+    </style>
+
+    <body onload="init()" >
+            <button id="reset", class="reset" onclick = reset()>RESET</button>
+            <p id="list"></p>
+            <canvas id="can" width="1200" height="400" style="position:absolute;   top:5%;   left:10%;  border:2px solid;"></canvas>
+            <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
+            
+    </body>
+</html>

@@ -1,0 +1,30 @@
+<html>
+    <head>
+        <title>Ataxia | Diagonal Test</title>
+    </head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src = "../scripts/testdiagonal.js" type = "text/javascript"></script>
+    <style>
+        .reset{
+            background-color:#FF0000;
+            border: none;
+            padding: 15px 25px;
+        }
+    </style>
+
+    <body onload="init()" >
+            <p id="fails">Total Fails: 0</p>
+            <p id="misses">Start fails: 0</p>
+            <p id="outofcanvas">OutOfCanvas: 0</p>
+            <p id="discontinuities">Discontinuities: 0</p>
+            <p id="off">Off-By-20: 0</p>
+            <p id="reverses">Reverses: 0</p>
+            <!--<button id="reset", class="reset" onclick = reset()>RESET</button><br><br-->
+            <button id="reset" type="button" class="btn btn-outline-danger" onclick=reset() >RESET</button>
+            <a href="testHtouch.html"><button id="touch", class="touch" >TOUCH</button></a>
+            <p id="list"></p>
+            <canvas id="can" width="864" height="576" style="position:absolute;   top:5%;   left:10%;  border:2px solid;"></canvas>
+            <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;">
+            
+    </body>
+</html>

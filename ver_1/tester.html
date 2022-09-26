@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title id="title">Ataxia | Horizontal Test</title id="title">
+    </head>
+    <style>
+        .reset{
+            background-color:#FF0000;
+            border: none;
+            padding: 15px 25px;
+        }
+    </style>
+
+    <body>
+   	<span id="global">
+   	<h1 id="testname"></h1>
+   	<hr />
+   	<br />
+            <span id="fails">Total Fails: 0</span> | 
+            <span id="misses">Start fails: 0</span> | 
+            <span id="outofcanvas">OutOfCanvas: 0</span> | 
+            <span id="discontinuities">Discontinuities: 0</span> | 
+            <span id="off">Off-By-20: 0</span> | 
+            <span id="reverses">Reverses: 0</span>
+            <br><br>
+            <button id="reset" type="button" class="btn btn-outline-danger" onclick=reset() >RESET</button> | 
+            <select id="testid">
+                <option>Select A Test</option>
+            	<option value="horizontal">Horizontal test</option>
+            	<option value="vertical">Vertical test</option>
+            	<option value="diagonal1">Diagonal test (1)</option>
+            	<option value="diagonal2">Diagonal test (2)</option>
+            </select><br><br>
+            <canvas id="can" width="864" height="576" style="border:2px solid;"></canvas>
+            <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;" />
+            <span id="log"></span> <br>
+            <p id="list"></p>
+            <script>
+		        window.onload = function() {
+                    
+		        	function loadScript(url){
+		        		var elt = document.createElement("script");
+		        		elt.src = "../scripts/testhorizontal.js?t=" + Math.random();
+		        		elt.onload = function(){
+		        		init();
+		        		};
+		        		document.head.appendChild(elt);
+		        	}
+		        	loadScript(null);
+		        	function $(e){
+		        		return document.getElementById(e);
+		        	}
+		        	$("testid").onchange = function(){
+                    window.location.href = window.location.href.split("?")[0] + "?test=" + $("testid").value;
+		        	};
+		        }
+            </script>
+    </span>
+    </body>
+</html>
