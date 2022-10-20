@@ -1,0 +1,22 @@
+#canvas {
+    border: 1px solid black;
+}
+
+body {
+    margin: 2px;
+}
+
+.btn-spacing-custom {
+    margin-left: 5px;
+    margin-right: 0px;
+}
+
+#canvas {
+    position: absolute;
+    z-index: 1;
+}
+#confetti {
+    position: absolute;
+    z-index: 2;
+    pointer-events: none;
+}

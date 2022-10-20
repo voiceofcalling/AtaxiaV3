@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>AtaxiaV Test Version 1</title>
+    <meta charset="utf-8">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
+
+    <link rel="stylesheet" href="index.css">
+    <script src="confetti.js"></script>
+    <!--<script src="index.js"></script>-->
+    <script>
+        let s = document.createElement("script");
+        s.src = "index.js?" + Date.now();
+        document.head.appendChild(s);
+    </script>
+</head>
+
+<body>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white">
+            <div class="d-flex">
+                <button type="button" class="btn btn-primary" id="reset">Reset</button>
+                <div class="btn-spacing-custom"></div>
+                <div class="dropdown show">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Download Data
+                  </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#" id="dl-stats-csv">Statistics CSV (for Excel)</a>
+                        <a class="dropdown-item" href="#" id="dl-stats-json">Statistics JSON (for developers)</a>
+                        <a class="dropdown-item" href="#" id="dl-csv">Raw data CSV (for Excel)</a>
+                        <a class="dropdown-item" href="#" id="dl-json">Raw data JSON (for developers)</a>
+                    </div>
+                </div>
+                <div class="btn-spacing-custom"></div>
+                <div class="dropdown show">
+                    <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    Choose Test
+                  </button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="#" id="horizontal">Horizontal</a>
+                        <a class="dropdown-item" href="#" id="vertical">Vertical</a>
+                        <a class="dropdown-item" href="#" id="diagonal1">Diagonal (bottom left to top right)</a>
+                        <a class="dropdown-item" href="#" id="diagonal2">Diagonal (bottom right to top left)</a>
+                    </div>
+                </div>
+                <div class="btn-spacing-custom"></div>
+                <button type="button" class="btn btn-primary" id="new-patient">New Patient</button>
+                <div class="btn-spacing-custom"></div>
+                <select id="test-type" class="form-select" aria-label="Test Type">
+                    <option value="0" selected>Horizontal test</option>
+                    <option value="1">Diagonal test 1</option>
+                    <option value="2">Diagonal test 2</option>
+                    <option value="3">Vertical test</option>
+                  </select>
+            </div>
+        </nav>
+    </header>
+    <div style="width: 864px;">
+        <table class="table">
+            <tbody>
+                <tr>
+                    <th scope="col">Discontinuities</th>
+                    <th scope="col">Turns (Vertical)</th>
+                    <th scope="col"><button id="dev-sel"></button></th>
+                    <th scope="col">Reverses (Horizontal)</th>
+                    <th scope="col">Off-by-<input type="number" style="width: 6ch;" value="20" min="10" id="offby-sel" /> px </th>
+                    <th scope="col">Out of bounds</th>
+                    <th scope="col">Start fails</th>
+                    <th scope="col"><button id="y-sel"></button></th>
+                </tr>
+                <tr>
+                    <td id="discon">0</td>
+                    <td id="verrev">0</td>
+                    <td id="darea">0</td>
+                    <td id="turns">0</td>
+                    <td id="offby">0</td>
+                    <td id="oob">0</td>
+                    <td id="sfail">0</td>
+                    <td id="yturns">0</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+    <div id="container">
+        <canvas id="canvas" width="900" height="600">Your browser does not support canvas</canvas>
+        <canvas id="confetti" width="900" height="600">Your browser does not support canvas</canvas>
+    </div>
+    <span id="text" style="display: none"></span>
+    <!-- modal for patient name and stuff -->
+    <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLongTitle">Patient Information</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="patient-name">Patient name</label>
+                            <input type="text" class="form-control" id="patient-name" placeholder="Enter name">
+                        </div>
+                        <div class="form-group">
+                            <label for="patient-id">Patient ID</label>
+                            <input type="text" class="form-control" id="patient-id" placeholder="Enter ID">
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary" id="set-patient-name">Save changes</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
